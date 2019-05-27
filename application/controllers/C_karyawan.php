@@ -53,13 +53,13 @@ class C_karyawan extends CI_Controller {
 	function add(){
 
 		$data = array(
-			'id_motor'      =>  $this->input->post('id'),
-			'id_cicil'    =>  $this->input->post('name'),
-			'id_uang_muka'	  =>  $this->input->post('email'),
-			'cicilan_pokok' =>  $this->input->post('address'),
-			'cicilan_bunga'	  =>  $this->input->post('phone'),
-			'cicilan_total'	  =>  $this->input->post('phone'));
-		$insert =  $this->curl->simple_post($this->API.'/Karyawan', $data, array(CURLOPT_BUFFERSIZE => 0));
+			'id_motor'      =>  $this->input->post('id_motor'),
+			'id_cicil'    =>  $this->input->post('id_cicil'),
+			'id_uang_muka'	  =>  $this->input->post('id_uang_muka'),
+			'cicilan_pokok' =>  $this->input->post('cicilan_pokok'),
+			'cicilan_bunga'	  =>  $this->input->post('cicilan_bunga'),
+			'cicilan_total'	  =>  $this->input->post('cicilan_total'));
+		$insert =  $this->curl->simple_post($this->API.'/penjualan', $data, array(CURLOPT_BUFFERSIZE => 0));
 
 		if($insert)
 		{
@@ -69,7 +69,7 @@ class C_karyawan extends CI_Controller {
 			$this->session->set_flashdata('hasil','Insert Data Gagal');
 		}
 
-		redirect('C_karyawan');
+		redirect('C_karyawan/penjualan');
 
 	}
 

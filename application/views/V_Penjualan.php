@@ -272,9 +272,9 @@
 					<div class="col-sm-6">
 						<h2>Manage <b>Employees</b></h2>
 					</div>
-					<!-- <div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add New Employe</span></a>
-					</div> -->
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add Penjualan</span></a>
+					</div>
 				</div>
 			</div>
 			<table class="table table-striped table-hover">
@@ -343,7 +343,7 @@
 		</div>
 	</div>
 
-  <!-- <div id="addEmployeeModal" class="modal fade">
+  <div id="addEmployeeModal" class="modal fade">
   		<div class="modal-dialog">
   			<div class="modal-content">
   				<form action="<?php echo site_url('C_karyawan/add'); ?>" method="post">
@@ -361,12 +361,20 @@
   							<input type="text" name="id_cicil" class="form-control" required>
   						</div>
   						<div class="form-group">
-  							<label>Address</label>
-  							<textarea class="form-control" name="address" required></textarea>
+  							<label>ID Uang Muka</label>
+  							<input type="text" name="id_uang_muka" class="form-control" required>
   						</div>
-  						<div class="form-group">
-  							<label>Phone</label>
-  							<input type="text" name="phone" class="form-control" required>
+              <div class="form-group">
+  							<label>Cicilan Pokok</label>
+  							<input type="text" name="cicilan_pokok" class="form-control" required>
+  						</div>
+              <div class="form-group">
+  							<label>Ciciclan Bunga</label>
+  							<input type="text" name="cicilan_bunga" class="form-control" required>
+  						</div>
+              <div class="form-group">
+  							<label>Cicilan Total</label>
+  							<input type="text" name="cicilan_total" class="form-control" required>
   						</div>
   					</div>
   					<div class="modal-footer">
@@ -379,7 +387,7 @@
   	</div>
 
 
-
+<!--
 
   	<!-- Delete Modal HTML -->
   	<!-- <?php
