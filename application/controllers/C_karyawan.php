@@ -69,7 +69,7 @@ class C_karyawan extends CI_Controller {
 			$this->session->set_flashdata('hasil','Insert Data Gagal');
 		}
 
-		redirect('C_karyawan/penjualan');
+		redirect('C_karyawan/get_penjualan');
 
 	}
 
