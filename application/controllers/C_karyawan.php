@@ -69,17 +69,19 @@ class C_karyawan extends CI_Controller {
 			$this->session->set_flashdata('hasil','Insert Data Gagal');
 		}
 
-		redirect('C_karyawan/penjualan');
+		redirect('C_karyawan/get_penjualan');
 
 	}
 
 
-	// proses untuk menghapus data pada database
-	function delete($id){
-		if(empty($id)){
-			redirect('C_karyawan');
+	//proses untuk menghapus data pada database
+	function delete($id_penjualan){
+
+
+		if(empty($id_penjualan)){
+			redirect('C_karyawan/get_penjualan');
 		}else{
-			$delete =  $this->curl->simple_delete($this->API.'/Karyawan', array('id'=>$id), array(CURLOPT_BUFFERSIZE => 10));
+			$delete =  $this->curl->simple_delete($this->API.'/penjualan/'.$id_penjualan, array('id_penjualan'=>$id_penjualan), array(CURLOPT_BUFFERSIZE => 10));
 			if($delete)
 			{
 				$this->session->set_flashdata('hasil','Delete Data Berhasil');
@@ -88,29 +90,29 @@ class C_karyawan extends CI_Controller {
 				$this->session->set_flashdata('hasil','Delete Data Gagal');
 			}
 
-			redirect('C_karyawan');
+			redirect('C_karyawan/get_penjualan');
 		}
 	}
-
-	function edit($id){
-		$data = array(
-			'id'      =>  $id,
-			'name'    =>  $this->input->post('name'),
-			'email'	  =>  $this->input->post('email'),
-			'address' =>  $this->input->post('address'),
-			'phone'	  =>  $this->input->post('phone'));
-		$edit =  $this->curl->simple_put($this->API.'/Karyawan', $data, array(CURLOPT_BUFFERSIZE => 0));
-		if($edit)
-		{
-			$this->session->set_flashdata('hasil','Edit Data Berhasil');
-		}else
-		{
-			$this->session->set_flashdata('hasil','Edit Data Gagal');
-		}
-
-		redirect('C_karyawan');
-
-}
+//
+// 	function edit($id){
+// 		$data = array(
+// 			'id'      =>  $id,
+// 			'name'    =>  $this->input->post('name'),
+// 			'email'	  =>  $this->input->post('email'),
+// 			'address' =>  $this->input->post('address'),
+// 			'phone'	  =>  $this->input->post('phone'));
+// 		$edit =  $this->curl->simple_put($this->API.'/Karyawan', $data, array(CURLOPT_BUFFERSIZE => 0));
+// 		if($edit)
+// 		{
+// 			$this->session->set_flashdata('hasil','Edit Data Berhasil');
+// 		}else
+// 		{
+// 			$this->session->set_flashdata('hasil','Edit Data Gagal');
+// 		}
+//
+// 		redirect('C_karyawan');
+//
+// }
 
 	//TUGAS : bikin fungsi update di client menggunakan service
 	//

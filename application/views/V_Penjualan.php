@@ -327,10 +327,10 @@
               <td>
 								<?php echo $key->cicilan_total ?>
 							</td>
-              <!-- <td>
+              <td>
                 <a href="#deleteEmployeeModal<?php echo $key->id_penjualan;?>" class="delete" data-toggle="modal">Delete</a>
-                <a href="#EditModal<?php echo $key->id_penjualan;?>" class="update" data-toggle="modal">Edit</a>
-              </td> -->
+                <!-- <a href="#EditModal<?php echo $key->id_penjualan;?>" class="update" data-toggle="modal">Edit</a> -->
+              </td>
 						</tr>
 						<?php
 						$i++;
@@ -387,76 +387,33 @@
   	</div>
 
 
-<!--
+    <?php
+foreach($penjualan as $key){
 
-  	<!-- Delete Modal HTML -->
-  	<!-- <?php
-  	foreach($karyawan as $key){
+  ?>
+  <div id="deleteEmployeeModal<?php echo $key->id_penjualan;?>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="<?php echo site_url('C_karyawan/delete/'.$key->id_penjualan); ?>" method="POST">
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Penjualan</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete these Records?</p>
+            <p class="text-warning"><small>This action cannot be undone.</small></p>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-danger" value="Delete">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-  		?>
-  		<div id="deleteEmployeeModal<?php echo $key->id;?>" class="modal fade">
-  			<div class="modal-dialog">
-  				<div class="modal-content">
-  					<form action="<?php echo site_url('C_karyawan/delete/'.$key->id); ?>" method="POST">
-  						<div class="modal-header">
-  							<h4 class="modal-title">Delete Employee</h4>
-  							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  						</div>
-  						<div class="modal-body">
-  							<p>Are you sure you want to delete these Records?</p>
-  							<p class="text-warning"><small>This action cannot be undone.</small></p>
-  						</div>
-  						<div class="modal-footer">
-  							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-  							<input type="submit" class="btn btn-danger" value="Delete">
-  						</div>
-  					</form>
-  				</div>
-  			</div>
-  		</div>
+<?php } ?>
 
-  	<?php } ?>
-
-  	<?php
-  	foreach($karyawan as $key){
-
-  		?>
-  		<div id="EditModal<?php echo $key->id;?>" class="modal fade">
-  			<div class="modal-dialog">
-  				<div class="modal-content">
-  					<form action="<?php echo site_url('C_karyawan/edit/').$key->id; ?>" method="post">
-  						<div class="modal-header">
-  							<h4 class="modal-title">Edit Employee</h4>
-  							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  						</div>
-  						<div class="modal-body">
-  							<div class="form-group">
-  								<label>Name</label>
-  								<input type="text" name="name" class="form-control" required>
-  							</div>
-  							<div class="form-group">
-  								<label>Email</label>
-  								<input type="email" name="email" class="form-control" required>
-  							</div>
-  							<div class="form-group">
-  								<label>Address</label>
-  								<textarea class="form-control" name="address" required></textarea>
-  							</div>
-  							<div class="form-group">
-  								<label>Phone</label>
-  								<input type="text" name="phone" class="form-control" required>
-  							</div>
-  						</div>
-  						<div class="modal-footer">
-  							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-  							<input id="tombol" type="submit" class="btn btn-success" value="Edit">
-  						</div>
-  					</form>
-  				</div>
-  			</div>
-  		</div>
-
-  	<?php } ?> --> -->
 
 </body>
 </html>
