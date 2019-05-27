@@ -93,26 +93,27 @@ class C_karyawan extends CI_Controller {
 			redirect('C_karyawan/get_penjualan');
 		}
 	}
-//
-// 	function edit($id){
-// 		$data = array(
-// 			'id'      =>  $id,
-// 			'name'    =>  $this->input->post('name'),
-// 			'email'	  =>  $this->input->post('email'),
-// 			'address' =>  $this->input->post('address'),
-// 			'phone'	  =>  $this->input->post('phone'));
-// 		$edit =  $this->curl->simple_put($this->API.'/Karyawan', $data, array(CURLOPT_BUFFERSIZE => 0));
-// 		if($edit)
-// 		{
-// 			$this->session->set_flashdata('hasil','Edit Data Berhasil');
-// 		}else
-// 		{
-// 			$this->session->set_flashdata('hasil','Edit Data Gagal');
-// 		}
-//
-// 		redirect('C_karyawan');
-//
-// }
+
+	function edit($id_penjualan){
+		$data = array(
+			'id_motor'      =>  $this->input->post('id_motor'),
+			'id_cicil'    =>  $this->input->post('id_cicil'),
+			'id_uang_muka'	  =>  $this->input->post('id_uang_muka'),
+			'cicilan_pokok' =>  $this->input->post('cicilan_pokok'),
+			'cicilan_bunga'	  =>  $this->input->post('cicilan_bunga'),
+			'cicilan_total'	  =>  $this->input->post('cicilan_total'));
+		$edit =  $this->curl->simple_put($this->API.'/Karyawan/'.$id_penjualan, $data, array(CURLOPT_BUFFERSIZE => 0));
+		if($edit)
+		{
+			$this->session->set_flashdata('hasil','Edit Data Berhasil');
+		}else
+		{
+			$this->session->set_flashdata('hasil','Edit Data Gagal');
+		}
+
+		redirect('C_karyawan/get_penjualan');
+
+}
 
 	//TUGAS : bikin fungsi update di client menggunakan service
 	//

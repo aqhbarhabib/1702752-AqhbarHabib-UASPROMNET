@@ -329,7 +329,7 @@
 							</td>
               <td>
                 <a href="#deleteEmployeeModal<?php echo $key->id_penjualan;?>" class="delete" data-toggle="modal">Delete</a>
-                <!-- <a href="#EditModal<?php echo $key->id_penjualan;?>" class="update" data-toggle="modal">Edit</a> -->
+                <a href="#EditModal<?php echo $key->id_penjualan;?>" class="update" data-toggle="modal">Edit</a>
               </td>
 						</tr>
 						<?php
@@ -414,6 +414,55 @@ foreach($penjualan as $key){
 
 <?php } ?>
 
+
+<?php
+foreach($penjualan as $key){
+
+  ?>
+  <div id="EditModal<?php echo $key->id_penjualan;?>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="<?php echo site_url('C_karyawan/edit/').$key->id_penjualan; ?>" method="post">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Penjualan</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>ID Motor</label>
+              <input type="text" name="id_motor" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>ID Cicil</label>
+              <input type="text" name="id_cicil" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>ID Uang Muka</label>
+              <input type="text" name="id_uang_muka" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Cicilan Pokok</label>
+              <input type="text" name="cicilan_pokok" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Ciciclan Bunga</label>
+              <input type="text" name="cicilan_bunga" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Cicilan Total</label>
+              <input type="text" name="cicilan_total" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input id="tombol" type="submit" class="btn btn-success" value="Edit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<?php } ?>
 
 </body>
 </html>
